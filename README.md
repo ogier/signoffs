@@ -14,6 +14,8 @@ The signoffs mostly came from [Wikipedia][2].
 [1]: javascript:{{bookmarklet}}
 [2]: http://en.wikipedia.org/wiki/Parting_phrase
 
+<textarea>Try me out here!</textarea>
+
 License
 -------
 
@@ -41,5 +43,3 @@ License
     ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
     (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
     SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-<input type="textarea"/>
