@@ -1,4 +1,4 @@
-var randomize_signoff = function () {
+var randomize_signoff = function (name) {
     var signoffs = [
         "Adieu",
         "All the best",
@@ -53,6 +53,9 @@ var randomize_signoff = function () {
         "xx"
     ];
 
+    var signoff = signoffs[Math.floor(Math.random() * signoffs.length)];
+    var signature = signoff + ',\n' + name;
+
     var el = document.activeElement;
     if (!el.setSelectionRange) return; // not a valid text input?
 
@@ -63,12 +66,8 @@ var randomize_signoff = function () {
     var prefix = val.substring(0, start);
     var suffix = val.substring(end);
 
-    var tmpl = document.getElementById('__signoffs_js').getAttribute('data-template');
-    var signoff = signoffs[Math.floor(Math.random() * signoffs.length)];
-    var signature = tmpl.replace('{{}}', signoff);
-
     el.value = prefix + signature + suffix;
     el.setSelectionRange(start, start + signature.length);
 };
 
-randomize_signoff();
+randomize_signoff(document.getElementById('__signoffs_js').getAttribute('data-name'));
