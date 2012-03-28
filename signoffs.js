@@ -6,6 +6,7 @@ var randomize_signoff = function () {
     ];
 
     var el = document.activeElement;
+    if (!el.setSelectionRange) return; // not a valid text input?
 
     var val = el.value;
     var start = el.selectionStart;
