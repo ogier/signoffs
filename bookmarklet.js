@@ -3,7 +3,7 @@
 (function(){
     var name='Alex Ogier',
         f='https://raw.github.com/ogier/signoffs/gh-pages/signoffs.js',
-        d=document.getElementById('canvas-frame').contentDocument||document,
+        d=document.getElementById('canvas_frame').contentDocument||document,
         j=d.getElementById('__signoffs_js');
     if(j){
         randomize_signoff();
