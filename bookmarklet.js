@@ -2,7 +2,7 @@
 // This gets jammed into an HTML attribute, so be careful.
 (function(){
     var name='Alex Ogier',
-        f='http://ogier.github.com/signoffs/signoffs.js',
+        f='https://raw.github.com/ogier/signoffs/gh-pages/signoffs.js',
         d=document.getElementById('canvas-frame').contentDocument||document,
         j=d.getElementById('__signoffs_js');
     if(j){
