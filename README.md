@@ -2,14 +2,18 @@ Randomized Signoffs
 ===================
 
 This is fun if you want to spit out little quirky signoffs while composing
-messages.
+messages. The message is chosen randomly from a large collection of signoffs,
+taken mostly from [this Wikipedia page][2].
 
 1. Drag this link to your bookmarks bar: [Signoff][1].
-2. While composing a message in a text input, click the bookmarklet to
-    signoff wherever your cursor. Repeatedly clicking will randomly select
-    signoffs.
+2. While composing a message, click the bookmarklet.
+3. If you don't like the message, or it is totally inappropriate for your boss
+    or whatever, click it again.
 
-The signoffs mostly came from [Wikipedia][2].
+You can edit the name that gets used by tweaking the bookmark.
+
+Note: The bookmarklet works with GMail, but only in the plain text editing mode.
+Patches welcome.
 
 [1]: javascript:{{bookmarklet}}
 [2]: http://en.wikipedia.org/wiki/Parting_phrase
