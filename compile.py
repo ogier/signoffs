@@ -12,14 +12,15 @@ def compile():
         bookmarklet = f.readlines()
         bookmarklet = ''.join(s.split('//')[0].strip() for s in bookmarklet)
 
-    # stick the minified bookmarklet in the readme file
-    # and process it with markdown
+    # process the readme file with markdown
+    # and stick the minified bookmarklet in it
     with open(os.path.join(_dir, 'README.md'), 'r') as f:
         readme = f.read()
-        if readme.find('{{ bookmarklet }}') == -1:
-            raise Exception('Could not find {{ bookmarklet }} marker in README')
-        readme = readme.replace('{{ bookmarklet }}', bookmarklet)
         readme = markdown(readme)
+        if readme.find('{{bookmarklet}}') == -1:
+            raise Exception('Could not find {{bookmarklet}} marker in README')
+        # here be unsafe hackery
+        readme = readme.replace('{{bookmarklet}}', bookmarklet)
 
     # extract the static bits of index.html
     with open(os.path.join(_dir, 'index.html'), 'r') as f:
