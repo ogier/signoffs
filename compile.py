@@ -10,7 +10,7 @@ def compile():
     # ghetto minify the bookmarklet js
     with open(os.path.join(_dir, 'bookmarklet.js'), 'r') as f:
         bookmarklet = f.readlines()
-        bookmarklet = ''.join(s.split('//')[0].strip() for s in bookmarklet)
+        bookmarklet = ''.join(s.strip() for s in bookmarklet if s[0:2] != '//')
 
     # process the readme file with markdown
     # and stick the minified bookmarklet in it

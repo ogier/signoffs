@@ -1,5 +1,5 @@
 // (Relatively) pretty source source code of the bookmarklet itself.
-// This gets jammed into an HTML attribute, so be careful
+// This gets jammed into an HTML attribute, so be careful.
 (function(){
     var tmpl='{{}},\nAlex Ogier',
         f='http://ogier.github.com/signoffs/signoffs.js',
