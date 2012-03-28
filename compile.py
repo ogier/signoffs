@@ -34,7 +34,7 @@ def compile():
         out.write(prefix)
         out.write('<!-- start of compiled README -->\n')
         out.write(readme)
-        out.write('<!-- end of compiled README -->\n')
+        out.write('\n<!-- end of compiled README -->')
         out.write(suffix)
 
 if __name__ == '__main__':
