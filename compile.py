@@ -1,0 +1,41 @@
+#!/usr/bin/env python
+import os
+import sys
+
+from markdown import markdown
+
+def compile():
+    _dir = os.path.dirname(__file__)
+
+    # ghetto minify the bookmarklet js
+    with open(os.path.join(_dir, 'bookmarklet.js'), 'r') as f:
+        bookmarklet = f.readlines()
+        bookmarklet = ''.join(s.split('//')[0].strip() for s in bookmarklet)
+
+    # stick the minified bookmarklet in the readme file
+    # and process it with markdown
+    with open(os.path.join(_dir, 'README.md'), 'r') as f:
+        readme = f.read()
+        if readme.find('{{ bookmarklet }}') == -1:
+            raise Exception('Could not find {{ bookmarklet }} marker in README')
+        readme = readme.replace('{{ bookmarklet }}', bookmarklet)
+        readme = markdown(readme)
+
+    # extract the static bits of index.html
+    with open(os.path.join(_dir, 'index.html'), 'r') as f:
+        html = f.read()
+        prefix = html.split('<!-- start of compiled README -->')[0]
+        suffix = html.split('<!-- end of compiled README -->')[-1]
+        if prefix == html or suffix == html:
+            raise Exception('Could not find <!-- compiled README --> markers')
+
+    # now write it all back
+    with open(os.path.join(_dir, 'index.html'), 'w') as out:
+        out.write(prefix)
+        out.write('<!-- start of compiled README -->\n')
+        out.write(readme)
+        out.write('<!-- end of compiled README -->\n')
+        out.write(suffix)
+
+if __name__ == '__main__':
+    compile()
